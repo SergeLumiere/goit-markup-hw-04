@@ -1,6 +1,9 @@
 /* *************** PROJECT COLORS *************** */
 /* IRIS color: CTAs, Focused, Active states, Links: 
 	#4d5ae5
+
+	OCEAN color: CTAs, Pressed state 
+	#404BBF
 	
 	NAVY BLUE color: Overlays, Shadows, Headings: 
 	#2e2f42
@@ -20,11 +23,14 @@
 	CLOUD color: Light mode backgrounds, Light mode Dialogs/alerts:
 	#f4f4fd
 
+	NAVY BLUE MODAL color: Overlay: 
+	#2E2F42
+
+	GREY color: Hero image background: 
+	#2E2F42
+
 	WHITE TEXT color: Hero title, Colored buttons:
-	#ffffff 
-	
-	HERO BUTTON HOVER background color: 
-	#404BBF
+	#ffffff 	
 	*/
 
 :root {
@@ -160,6 +166,7 @@ button {
 .header {
 	padding-top: 24px;
 	padding-bottom: 24px;
+	border-bottom: 1px solid var(--primary-light-background-color);
 	box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .header-container {
@@ -167,7 +174,7 @@ button {
 	align-items: center;
 }
 .header .logo {
-	margin-right: 77px;
+	margin-right: 76px;
 
 	color: var(--secondary-text-color);
 }
@@ -186,10 +193,10 @@ button {
 }
 .nav-item-link:hover,
 .nav-item-link:focus {
-	color: var(--primary-accent-color);
+	color: var(--secondary-accent-color);
 }
 .current {
-	color: var(--primary-accent-color);
+	color: var(--secondary-accent-color);
 }
 .header-contacts {
 	display: flex;
@@ -205,7 +212,7 @@ button {
 }
 .header-contacts-link:hover,
 .header-contacts-link:focus {
-	color: var(--primary-accent-color);
+	color: var(--secondary-accent-color);
 }
 
 /* ================= FOOTER ================= */
@@ -223,7 +230,7 @@ button {
 	margin-right: 120px;
 }
 .footer .logo {
-	display: inline-block;
+	display: block;
 	margin-bottom: 16px;
 
 	color: var(--secondary-light-text-color);
@@ -263,17 +270,18 @@ button {
 /* SECTION HERO */
 .hero {
 	max-width: 1440px;
-	height: 603px;
+	height: 600px;
 	margin-left: auto;
 	margin-right: auto;
-	padding-top: 192px;
-	padding-bottom: 192px;
+	padding-top: 188px;
+	padding-bottom: 188px;
 	padding-left: 0;
 	padding-right: 0;
 
 	text-align: center;
 
-	background-image: linear-gradient(rgb(46, 47, 66, 0.7), rgb(46, 47, 66, 0.7)), url(../images/backgrounds/hero/bg.jpg);
+	background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+		url(../images/backgrounds/hero/bg.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-color: var(--primary-dark-background-color);
@@ -297,8 +305,8 @@ button {
 	padding-bottom: 16px;
 	padding-left: 32px;
 	padding-right: 32px;
-	border: none;
 	border-radius: 4px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
 	font-family: inherit;
 	font-weight: 700;
@@ -311,8 +319,6 @@ button {
 }
 .hero-button:hover,
 .hero-button:focus {
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-
 	background-color: var(--secondary-accent-color);
 }
 /* SECTION OUR FEATURES */
@@ -371,7 +377,7 @@ button {
 	background-color: var(--primary-background-color);
 }
 .team-card-content-wrapper .section-txt {
-	margin-bottom: 12px;
+	margin-bottom: 8px;
 }
 .team-card-list {
 	display: flex;
@@ -387,6 +393,10 @@ button {
 	border-radius: 50%;
 	background-color: var(--primary-accent-color);
 }
+.team-card-link:focus,
+.team-card-link:hover {
+	background-color: var(--secondary-accent-color);
+}
 
 /* SECTION OUR CUSTOMERS */
 .customers-list {
@@ -400,19 +410,16 @@ button {
 	align-items: center;
 	width: 168px;
 	height: 88px;
-	border: 1px solid var(--light-color);
+	border: 1px solid currentColor;
 	border-radius: 4px;
+	color: var(--light-color);
 }
 .customers-list-icon {
-	fill: var(--light-color);
+	fill: currentColor;
 }
 .customers-list-link:focus,
 .customers-list-link:hover {
-	border-color: var(--primary-accent-color);
-}
-.customers-list-icon:focus,
-.customers-list-icon:hover {
-	fill: var(--primary-accent-color);
+	color: var(--secondary-accent-color);
 }
 
 /* ================= PORTFOLIO.HTML ================= */
@@ -447,11 +454,11 @@ button {
 }
 .filters-btn:hover,
 .filters-btn:focus {
-	border-color: var(--primary-accent-color);
+	border-color: var(--secondary-accent-color);
 	box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 	color: var(--white-color);
 
-	background-color: var(--primary-accent-color);
+	background-color: var(--secondary-accent-color);
 }
 .projects-list {
 	display: flex;
@@ -462,13 +469,16 @@ button {
 .projects-list-item {
 	width: calc((100% - 2 * 24px) / 3);
 	box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+	border: 1px solid var(--primary-light-background-color);
 }
 .projects-list-link {
 	display: block;
+	color: inherit;
 }
 .projects-list-link:hover,
 .projects-list-link:focus {
 	box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+	/* border: 0.5px solid var(--secondary-background-color); */
 }
 .projects-card-content-wrapper {
 	padding-top: 32px;
